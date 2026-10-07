@@ -216,3 +216,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Full upstream reference checkout; keep it nested and out of this course repo.
+/references/neural-spectral-capacity/
+
+# Local machine and assistant workspace metadata.
+.DS_Store
+.workbuddy/
