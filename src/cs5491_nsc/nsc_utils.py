@@ -1,4 +1,5 @@
 """Shared NSC-MP utilities: psi_mp with caching."""
+
 import numpy as np
 from scipy import integrate
 
@@ -38,7 +39,7 @@ def psi_mp(m, n, sigma=None):
     gamma = n / m
     lp = (1 + np.sqrt(gamma)) ** 2
     lm = (1 - np.sqrt(gamma)) ** 2
-    s2m = sigma ** 2 * m
+    s2m = sigma**2 * m
 
     def integrand(x):
         d = mp_density(x, gamma)

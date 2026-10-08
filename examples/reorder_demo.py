@@ -1,7 +1,6 @@
 """Controlled width-reordering example from the course topic brief."""
 
-from src.student_score import TransformerLayerSpec, original_nsc_score, score_transformer
-
+from cs5491_nsc import TransformerLayerSpec, original_nsc_score, score_transformer
 
 if __name__ == "__main__":
     forward = [

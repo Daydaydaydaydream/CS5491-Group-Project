@@ -115,7 +115,7 @@ FlexiBERT 500 架构（GLUE）排序质量：
 课程 starter 很可能就是官方仓库的教学化裁剪版（官方 `ranking/` 下的 `eval_flexibert.py` / `compute_gpt2.py` 与 README 中"200 个 decoder Transformer 配置 + 100/100 划分"的描述高度吻合）。因此：
 
 - 拿到 starter 后，应先核对其 `psi_mp` 与官方 `nsc_utils.py` 是否一致，确认基线可对齐。
-- 项目的 `src/student_score.py` 已设计为接受外部传入容量序列，接口上可直接对接，无需重写。
+- 项目的 `src/cs5491_nsc/student_score.py` 已设计为接受外部传入容量序列，接口上可直接对接，无需重写。
 - `alpha` 的调参须严格限制在开发集；官方代码中 `_PSI_CACHE` 为全局字典，跨划分复用不引入数据泄漏（纯形状函数），但应在报告中说明。
 
 ## 7. 引用清单

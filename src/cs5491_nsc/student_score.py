@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
 from math import isfinite
-from typing import Sequence
 
-from nsc.nsc_utils import psi_mp
+from .nsc_utils import psi_mp
 
 
 @dataclass(frozen=True)
@@ -18,7 +18,9 @@ class TransformerLayerSpec:
     ffn_width: int
 
 
-def ffn_residual_load(hidden_width: int, ffn_width: int, init_std: float = 0.02) -> float:
+def ffn_residual_load(
+    hidden_width: int, ffn_width: int, init_std: float = 0.02
+) -> float:
     """Estimate the output/input variance ratio for W2 ReLU(W1 x).
 
     Assumes independent Gaussian matrices, isotropic inputs, and no normalization
@@ -44,10 +46,7 @@ def layer_capacities(
         raise ValueError("init_std must be finite and non-negative")
 
     head_width = d // heads
-    attention = (
-        3 * heads * psi_mp(d, head_width, init_std)
-        + psi_mp(d, d, init_std)
-    )
+    attention = 3 * heads * psi_mp(d, head_width, init_std) + psi_mp(d, d, init_std)
     ffn_capacity = 2 * psi_mp(d, ffn, init_std)
     load = ffn_residual_load(d, ffn, init_std)
     return attention, ffn_capacity, load
