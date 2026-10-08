@@ -2,7 +2,7 @@
 
 CS5491 课程组项目：研究 Neural Spectral Capacity（NSC）能否通过引入 Transformer 残差路径中的层序信息，改进架构排序与固定资源预算下的架构选择。
 
-本仓库以 [Optima-CityU/neural-spectral-capacity](https://github.com/Optima-CityU/neural-spectral-capacity) 为方法基线。核心上游实现 `src/cs5491_nsc/nsc_utils.py` 及对应 MIT 许可证已随本仓库提供；完整上游 checkout 位于 `references/neural-spectral-capacity/`（独立 Git 仓库，不入库）。课程 starter 的压缩包与解压版归档在 `course/starter/`。
+本仓库以 Neural Spectral Capacity（NSC）为方法基线，核心实现及对应 MIT 许可证已随项目提供。课程 starter 数据与评测程序归档在 `course/nsc-starter/`。
 
 本项目是课程研究工程，不是上游官方仓库。
 
@@ -41,7 +41,7 @@ S(alpha) = sum_l [A_l + F_l / (1 + alpha * sum_{j<l} q_j)]
 
 `alpha = 0` 是加性消融，对应课程基线的原始 NSC 求和。负载代理假设两层独立高斯线性映射、中间 ReLU、各向同性输入，并忽略归一化和可学习缩放；它是项目中的待检验启发式，不是上游论文提出或证明的公式。
 
-上游附录已研究 sum、mean、harmonic、geometric、min 等层间对称聚合。因此本项目的研究差异应限定为**权重由前序残差负载决定的层序依赖**，并在实验中纳入 harmonic/min 聚合作为对照。详见 [`docs/github-survey.md`](docs/github-survey.md)。
+实验中将纳入 harmonic/min 聚合作为对照，以区分一般非加性聚合与**权重由前序残差负载决定的层序依赖**。
 
 ## 项目结构
 
@@ -50,11 +50,10 @@ src/cs5491_nsc/          可安装的项目包：MP 工具与课程评分实现
 tests/                   自动化测试（pytest）
 examples/                受控 FFN 宽度换序示例
 scripts/                 可复现的研究操作脚本
-course/starter/          课程 starter 压缩包和原始评测程序（逐字保留，不参与格式化）
+course/nsc-starter/      课程 starter 数据和原始评测程序（逐字保留，不参与格式化）
 data/                    课程面板数据说明
 results/                 实验结果记录约定
-docs/                    课程主题、项目计划、立项书与调研文档
-references/              上游项目参考与版本说明
+docs/                    课程主题、项目计划与立项书
 ```
 
 ## 环境与运行
@@ -63,7 +62,8 @@ references/              上游项目参考与版本说明
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate# Windows: .venv\Scripts\activate
+source .venv/bin/activate
+# Windows: .venv\Scripts\activate
 python -m pip install -e ".[dev]"
 ```
 
@@ -98,7 +98,7 @@ Residual-context score (alpha=1):
 starter 自带评测程序，只依赖 Python 标准库。运行自检与开发集基线：
 
 ```bash
-cd course/starter/nsc-starter
+cd course/nsc-starter
 python3 check_starter.py
 python3 evaluate.py --split development --output development_results.json
 ```
@@ -127,7 +127,7 @@ proposed = score_transformer(layers, alpha=1.0)
 
 ## 开发规范
 
-- `make lint` 与 `make format` 使用 Ruff。`course/starter/` 为逐字归档的课程材料，已在配置中排除，不参与检查与格式化。
+- `make lint` 与 `make format` 使用 Ruff。`course/nsc-starter/` 为逐字归档的课程材料，已在配置中排除，不参与检查与格式化。
 - 提交前安装 pre-commit 钩子：`python -m pip install pre-commit && pre-commit install`。
 - `src/cs5491_nsc/nsc_utils.py` 为上游 vendored 实现，修改前先确认是否应在上游仓库进行。
 - CI（`.github/workflows/ci.yml`）在 Python 3.10 与 3.12 上运行 lint、测试与 starter 自检。
@@ -140,7 +140,7 @@ proposed = score_transformer(layers, alpha=1.0)
 4. 在 10M、20M、30M、50M 参数上限下评估 `k = 1, 3` 的最佳困惑度和相对遗憾，并对比均匀随机选择。
 5. 只用开发集选择 `alpha` 和方法设置；冻结方案后再运行最终集。保存精确命令、配置与提交标识。
 
-课程 starter 和固定 200 架构面板已归档在 `course/starter/nsc-starter/`。在运行 starter 自检、完成评分接口适配并复现开发集基线前，不报告正式课程评估结果。上游仓库列出的其他基准数据、模型权重和训练资源仍属外部资源，并未随本项目提供。课程归档每个架构只有一个结果，因此本项目不估计训练种子不确定性。
+课程 starter 和固定 200 架构面板已归档在 `course/nsc-starter/`。在运行 starter 自检、完成评分接口适配并复现开发集基线前，不报告正式课程评估结果。上游仓库列出的其他基准数据、模型权重和训练资源仍属外部资源，并未随本项目提供。课程归档每个架构只有一个结果，因此本项目不估计训练种子不确定性。
 
 ## 参考资料
 
@@ -149,17 +149,4 @@ proposed = score_transformer(layers, alpha=1.0)
 - 课程项目主题说明：[`docs/topic-neural-spectral-capacity.pdf`](docs/topic-neural-spectral-capacity.pdf)
 - 项目规划：[`docs/project-plan.md`](docs/project-plan.md)
 - 立项书框架：[`docs/project-proposal-framework-cn.md`](docs/project-proposal-framework-cn.md)
-- 类似项目调研：[`docs/github-survey.md`](docs/github-survey.md)
-- 上游项目关系：[`docs/upstream-project.md`](docs/upstream-project.md)
-- Zhu, Chenyu, Ruoyu Zhao, and Zhichao Lu. “Neural Spectral Capacity: Measuring and Designing Architectures from Network Specification Alone.” NeurIPS 2026 poster. [论文与项目仓库](https://github.com/Optima-CityU/neural-spectral-capacity) · [上游 `nsc_utils.py`](https://github.com/Optima-CityU/neural-spectral-capacity/blob/7f003cbfc650a69b4456d85602357f4d115c3d69/nsc/nsc_utils.py)
-
-引用论文时可使用：
-
-```bibtex
-@inproceedings{zhu2026nsc,
-  title={Neural Spectral Capacity: Measuring and Designing Architectures from Network Specification Alone},
-  author={Zhu, Chenyu and Zhao, Ruoyu and Lu, Zhichao},
-  booktitle={The Fortieth Annual Conference on Neural Information Processing Systems},
-  year={2026}
-}
-```
+- NSC 方法论文与官方实现：[论文](https://arxiv.org/abs/2609.23087) · [代码仓库](https://github.com/Optima-CityU/neural-spectral-capacity)

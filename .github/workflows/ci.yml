@@ -52,5 +52,5 @@ jobs:
           python-version: "3.12"
 
       - name: Verify the vendored starter still passes its own checks
-        working-directory: course/starter/nsc-starter
+        working-directory: course/nsc-starter
         run: python check_starter.py

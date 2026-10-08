@@ -29,9 +29,5 @@ coverage.xml
 # Local credentials
 .env
 
-# Full upstream reference checkout: a separate Git repository pinned to the
-# commit recorded in references/README.md. Kept out of this course repo.
-/references/neural-spectral-capacity/
-
 # Local assistant workspace metadata
 .workbuddy/

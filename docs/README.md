@@ -8,17 +8,15 @@
 | [`project-plan.md`](project-plan.md) | 项目规划与时间表 | 里程碑安排、本周优先事项、风险应对 |
 | [`project-proposal-framework-cn.md`](project-proposal-framework-cn.md) | 一页立项书框架（中文） | 10-15 提交；按 A4 / Times New Roman 12 pt / 2.5 cm 页边距 / 单倍行距排版 |
 | [`project-proposal.docx`](project-proposal.docx) | 立项书草稿（可编辑） | 在框架基础上填写完整；提交前转为 PDF |
-| [`github-survey.md`](github-survey.md) | 类似项目调研（2026-10-07） | 确认官方开源实现、研究空白与最大风险 |
-| [`upstream-project.md`](upstream-project.md) | 上游项目与本项目的关系 | 引用来源、MIT 许可归属、可用数据与限制 |
 
 ## 阅读顺序建议
 
 1. 先读课程主题说明，确认任务边界与评分口径。
-2. 再读调研文档，明确本项目与官方 NSC 实现差异化之处（层序依赖，而非一般非加性聚合）。
-3. 动手前读项目规划，确认当前阶段的交付物。
+2. 再读项目规划，确认当前阶段的交付物与实验约定。
+3. 编写立项书时参考中文框架，并核对课程提交要求。
 
 ## 约定
 
 - 文档中的结论区分「已验证」与「待检验」。评分对层序敏感不等同于预测性能提升，两者分别报告。
 - 正式实验结果不得在运行前填写。开发集用于方法选择，最终集只在冻结方案后评估。
-- 引用上游论文时使用 `README.md` 中的 BibTeX 条目。
+- 上游实现的许可与来源记录见仓库根目录的 `THIRD_PARTY_NOTICES.md`。

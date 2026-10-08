@@ -1,6 +1,6 @@
 # 数据
 
-课程核心实验使用 `course/starter/nsc-starter/` 中的 200 个 decoder-Transformer 架构配置和固定开发集/最终集划分。压缩包原件也保存在 `course/starter/nsc-starter.zip`。请以 starter 内的 README 和 provenance 文件为准记录数据来源、版本及限制。
+课程核心实验使用 `course/nsc-starter/` 中的 200 个 decoder-Transformer 架构配置和固定开发集/最终集划分。请以 starter 内的 README 和 provenance 文件为准记录数据来源、版本及限制。
 
 上游 NSC 仓库还列出 GPT-2/LiteTransformerSearch、FlexiBERT、AutoFormer、NATS-Bench、MobileNetV3、Transformer-XL 与 LoNAS 等外部资源。它们不自动构成本课程固定面板；任何替代数据只能用于开发调试，不能替代正式开发/最终评估。
 

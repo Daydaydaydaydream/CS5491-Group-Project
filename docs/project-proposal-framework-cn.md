@@ -26,7 +26,7 @@ S(\alpha)=\sum_l\left(A_l+\frac{F_l}{1+\alpha\sum_{j<l}q_j}\right).
 
 ## 数据、对照与评估
 
-使用课程 starter 中的 200 个归档 decoder-Transformer 架构及固定划分（100 个开发架构、100 个最终架构；starter 位于 `course/starter/nsc-starter/`）。对照包括原始 NSC、课程位置加权示例、加性消融、参数量、参考 FLOPs，以及 harmonic/min 聚合。报告 Spearman ρ、Kendall τb 和并列情况，并分析同隐藏宽度、参数量差异不超过 10% 的配对；在 10M、20M、30M、50M 参数预算下，对 `k=1/3` 报告最佳所选困惑度和相对遗憾，并与均匀随机选择比较。仅用开发集选择 \(\alpha\) 和方法设置，冻结后再评估最终集。每个架构只有一个归档结果，因此不估计训练种子不确定性。
+使用课程 starter 中的 200 个归档 decoder-Transformer 架构及固定划分（100 个开发架构、100 个最终架构；starter 位于 `course/nsc-starter/`）。对照包括原始 NSC、课程位置加权示例、加性消融、参数量、参考 FLOPs，以及 harmonic/min 聚合。报告 Spearman ρ、Kendall τb 和并列情况，并分析同隐藏宽度、参数量差异不超过 10% 的配对；在 10M、20M、30M、50M 参数预算下，对 `k=1/3` 报告最佳所选困惑度和相对遗憾，并与均匀随机选择比较。仅用开发集选择 \(\alpha\) 和方法设置，冻结后再评估最终集。每个架构只有一个归档结果，因此不估计训练种子不确定性。
 
 ## 计算计划与预期贡献
 

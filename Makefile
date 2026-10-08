@@ -28,7 +28,7 @@ test:
 check: lint test
 
 starter:
-	cd course/starter/nsc-starter && ../../../$(PYTHON) check_starter.py
+	cd course/nsc-starter && ../../$(PYTHON) check_starter.py
 
 demo:
 	$(PYTHON) -m examples.reorder_demo

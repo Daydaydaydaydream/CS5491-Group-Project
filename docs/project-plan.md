@@ -8,7 +8,7 @@
 
 **预期方法：** 以课程 NSC 实现为基线，加入层序残差上下文加权；对比原始 NSC、`alpha=0` 加性消融、位置加权示例、参数量/FLOPs、harmonic/min 聚合与均匀随机选择。控制变量的 FFN 宽度换序实验用于检查评分对顺序的敏感性。评分对顺序敏感不等价于预测性能提升。
 
-**正式评估数据：** 课程 starter 及其 200 个 decoder-Transformer 架构规格已归档在 `course/starter/nsc-starter/`，固定划分为 100 个开发架构和 100 个最终架构。先按 starter README 自检并复现开发集基线；开发集用于选择 `alpha` 和方法设置，冻结后才评估最终集。
+**正式评估数据：** 课程 starter 及其 200 个 decoder-Transformer 架构规格已归档在 `course/nsc-starter/`，固定划分为 100 个开发架构和 100 个最终架构。先按 starter README 自检并复现开发集基线；开发集用于选择 `alpha` 和方法设置，冻结后才评估最终集。
 
 **指标：** Spearman ρ、Kendall τb、并列数；参数预算 10M/20M/30M/50M、每次选择 `k=1/3` 时的最佳困惑度与相对遗憾；均匀随机选择波动。由于归档每个架构只有一个训练结果，不从该面板估计训练种子不确定性。
 
@@ -28,7 +28,7 @@
 ## 本周优先事项
 
 1. 确认组员姓名、学号和联系邮箱，并定下项目标题。
-2. 阅读 `course/starter/nsc-starter/README.md` 和课程主题说明，核对评分约定与数据划分。
+2. 阅读 `course/nsc-starter/README.md` 和课程主题说明，核对评分约定与数据划分。
 3. 运行 starter 自检和开发集基线；确认当前评分原型如何适配 `score(config)` / `ablation(config)` 接口。
 4. 完成立项书中的数据集、基线、指标和计算计划，并控制在一页。
 
