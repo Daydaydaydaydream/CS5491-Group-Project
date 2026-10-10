@@ -6,8 +6,7 @@
 |---|---|---|
 | [`topic-neural-spectral-capacity.pdf`](topic-neural-spectral-capacity.pdf) | 课程主题说明（官方原件） | 核对研究问题、数据划分与提交要求 |
 | [`project-plan.md`](project-plan.md) | 项目规划与时间表 | 里程碑安排、本周优先事项、风险应对 |
-| [`project-proposal-framework-cn.md`](project-proposal-framework-cn.md) | 一页立项书框架（中文） | 10-15 提交；按 A4 / Times New Roman 12 pt / 2.5 cm 页边距 / 单倍行距排版 |
-| [`project-proposal.docx`](project-proposal.docx) | 立项书草稿（可编辑） | 在框架基础上填写完整；提交前转为 PDF |
+| [`project-proposal-framework-cn.md`](project-proposal-framework-cn.md) | 唯一立项书源文件（中文） | 2026-10-15 23:59 北京时间提交；按 A4 / Times New Roman 12 pt / 2.5 cm 页边距 / 单倍行距导出一页 PDF |
 
 ## 阅读顺序建议
 
