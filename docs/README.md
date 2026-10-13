@@ -6,13 +6,13 @@
 |---|---|---|
 | [`topic-neural-spectral-capacity.pdf`](topic-neural-spectral-capacity.pdf) | 课程主题说明（官方原件） | 核对研究问题、数据划分与提交要求 |
 | [`project-plan.md`](project-plan.md) | 项目规划与时间表 | 里程碑安排、本周优先事项、风险应对 |
-| [`project-proposal-framework-cn.md`](project-proposal-framework-cn.md) | 唯一立项书源文件（中文） | 2026-10-15 23:59 北京时间提交；按 A4 / Times New Roman 12 pt / 2.5 cm 页边距 / 单倍行距导出一页 PDF |
+| [`ProjectProposal-en.md`](ProjectProposal-en.md) | 唯一立项书源文件（英文，含评估表格） | 2026-10-15 23:59 北京时间提交；按 A4 / Times New Roman 12 pt / 2.5 cm 页边距 / 单倍行距导出一页 PDF |
 
 ## 阅读顺序建议
 
 1. 先读课程主题说明，确认任务边界与评分口径。
 2. 再读项目规划，确认当前阶段的交付物与实验约定。
-3. 编写立项书时参考中文框架，并核对课程提交要求。
+3. 编写立项书时参考英文源文件，并核对课程提交要求。
 
 ## 约定
 
